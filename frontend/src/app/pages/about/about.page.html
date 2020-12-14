@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-title>About</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-item *ngFor="let item of data">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    {{item.title}}
+                </ion-col>
+                <ion-col *ngIf="item.url !== undefined">
+                    <a href="{{item.url}}" target="_blank">{{item.desc}}</a>
+                </ion-col>
+                <ion-col *ngIf="item.url === undefined">
+                    {{item.desc}}
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
 
 </ion-content>
